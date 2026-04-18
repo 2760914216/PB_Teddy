@@ -6,10 +6,34 @@ database:
   database: financial_reports
 
 paths:
-  pdf_dir: "pdf提取测试集"
-  output_dir: "test_ex_db_result"
-  log_dir: "test_ex_db_result"
+  pdf_dir: "financial_report_set"
+  output_dir: "ex_db_result"
+  log_dir: "ex_db_result"
 
 settings:
   unit_conversion: true
   duplicate_mode: "REPLACE"
+
+ollama:
+  host: "http://localhost:11434"
+  model: "qwen3:14b"
+  timeout_seconds: 60
+  temperature: 0.1
+  max_retries: 1
+
+task2:
+  result_dir: "result"
+  chart_dir: "result"
+  question_id_prefix: "B"
+  max_rows: 50
+  default_recent_years: 4
+  max_turns: 10
+  enable_charts: true
+  sample_input_path: ""
+  chart_font_candidates:
+    - "Noto Sans CJK JP"
+    - "Droid Sans Fallback"
+    - "Noto Sans CJK SC"
+    - "SimHei"
+    - "Microsoft YaHei"
+    - "WenQuanYi Zen Hei"

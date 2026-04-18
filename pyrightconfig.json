@@ -1,0 +1,12 @@
+{
+  "include": [
+    "pdfExtractor",
+    "src",
+    "scripts",
+    "test"
+  ],
+  "extraPaths": [
+    "."
+  ],
+  "typeCheckingMode": "off"
+}

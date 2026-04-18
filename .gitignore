@@ -1,6 +1,9 @@
 .ignore
 financial_report_set
 __pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
 *.pyc
 .ruff_cache/
 附件7.txt
