@@ -1,0 +1,1 @@
+{"pdf": "B_problem.pdf", "failure_stage": "metadata", "reason": "missing_identity", "details": {"diagnostics": [{"stage": "metadata", "reason": "missing_stock_code"}, {"stage": "metadata", "reason": "missing_stock_abbr"}]}}

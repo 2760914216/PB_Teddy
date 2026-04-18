@@ -1,0 +1,4 @@
+pdfplumber==0.11.9
+PyMySQL==1.1.2
+pandas==3.0.2
+PyYAML>=6.0

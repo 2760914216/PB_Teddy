@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "/home/ruruka/下载/oh-my-opencode-main/oh-my-opencode-main/dist/index.js"
+  ],
+  // "model": "opencode/minimax-m2.5-free",
+  "autoupdate": true,
+  "server": {
+    "port": 4096
+  }
+}

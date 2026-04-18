@@ -1,0 +1,13 @@
+.ignore
+financial_report_set
+__pycache__/
+*.pyc
+.ruff_cache/
+附件7.txt
+B_problem.pdf
+ex_db_result/*.log
+ex_db_result/*.csv
+示例数据/
+openspec/
+.opencode/
+.sisyphus/

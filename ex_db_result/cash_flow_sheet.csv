@@ -1,0 +1,5 @@
+﻿serial_number,stock_code,stock_abbr,net_cash_flow,net_cash_flow_yoy_growth,operating_cf_net_amount,operating_cf_ratio_of_net_cf,operating_cf_cash_from_sales,investing_cf_net_amount,investing_cf_ratio_of_net_cf,investing_cf_cash_for_investments,investing_cf_cash_from_investment_recovery,financing_cf_cash_from_borrowing,financing_cf_cash_for_debt_repayment,financing_cf_net_amount,financing_cf_ratio_of_net_cf,report_period,report_year
+55,600080,金花股份,18709.41,-31.8097,6054.84,32.3625,57651.81,13776.09,73.6319,16600.00,13989.00,17540.54,17540.54,-1121.52,-5.9944,2023FY,2023
+56,600080,金花股份,-31716.65,-936.0083,-2309.94,7.2831,27037.58,-17797.80,56.1150,16600.00,,29823.49,25568.04,-11608.91,36.6019,2024HY,2024
+57,000999,华润三九,385367.69,9290.7829,419174.29,108.7726,2748566.69,-79349.80,-20.5907,318199.56,222863.58,357809.10,183629.33,45042.47,11.6882,2023FY,2023
+58,000999,华润三九,50896.81,-75.4671,78657.82,154.5437,680020.20,-25070.34,-49.2572,101601.68,85737.08,12434.17,10575.26,-2633.37,-5.1739,2024Q1,2024

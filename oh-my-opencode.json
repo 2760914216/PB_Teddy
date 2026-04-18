@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": { "category": "unspecified-high" },
+    "hephaestus": { "category": "unspecified-high" },
+    "prometheus": { "category": "unspecified-high" },
+    "atlas": { "category": "unspecified-high" },
+    "oracle": { "category": "unspecified-high" },
+    "librarian": { "category": "unspecified-high" },
+    "explore": { "category": "unspecified-high" },
+    "metis": { "category": "unspecified-high" },
+    "momus": { "category": "unspecified-high" },
+    "multimodal-looker": { "category": "unspecified-high" },
+    "sisyphus-junior": { "category": "unspecified-high" }
+  },
+  "categories": {
+    "visual-engineering": { "category": "unspecified-high" },
+    "ultrabrain": { "category": "unspecified-high" },
+    "artistry": { "category": "unspecified-high" },
+    "quick": { "category": "unspecified-high" },
+    "unspecified-low": { "category": "unspecified-high" },
+    "unspecified-high": { "category": "unspecified-high" },
+    "writing": { "category": "unspecified-high" }
+  }
+}

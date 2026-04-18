@@ -1,0 +1,16 @@
+2026-04-18 08:13:51,284 [INFO] __main__: Found 1 PDF files in .
+2026-04-18 08:13:51,286 [INFO] __main__: Connected to MySQL database
+2026-04-18 08:13:51,287 [INFO] __main__: Processing: B_problem.pdf
+2026-04-18 08:13:51,290 [INFO] src.pdf_parser: Opened PDF: B_problem.pdf (5 pages)
+2026-04-18 08:13:51,427 [INFO] __main__: 
+Processed 0/1 PDFs successfully
+2026-04-18 08:13:51,427 [WARNING] __main__: Errors (1):
+2026-04-18 08:13:51,427 [WARNING] __main__:   - {"pdf": "B_problem.pdf", "failure_stage": "metadata", "reason": "missing_identity", "details": {"diagnostics": [{"stage": "metadata", "reason": "missing_stock_code"}, {"stage": "metadata", "reason": "missing_stock_abbr"}]}}
+2026-04-18 08:13:51,427 [INFO] __main__: Exporting CSV to test_ex_db_result
+2026-04-18 08:13:51,430 [INFO] src.db_handler: Exported income_sheet to test_ex_db_result/income_sheet.csv
+2026-04-18 08:13:51,431 [INFO] src.db_handler: Exported balance_sheet to test_ex_db_result/balance_sheet.csv
+2026-04-18 08:13:51,432 [INFO] src.db_handler: Exported cash_flow_sheet to test_ex_db_result/cash_flow_sheet.csv
+2026-04-18 08:13:51,432 [INFO] src.db_handler: Exported core_performance_indicators_sheet to test_ex_db_result/core_performance_indicators_sheet.csv
+2026-04-18 08:13:51,432 [INFO] __main__: CSV export complete
+2026-04-18 08:13:51,433 [INFO] __main__: Error log written to test_ex_db_result/errors.log
+2026-04-18 08:13:51,433 [INFO] __main__: Done!

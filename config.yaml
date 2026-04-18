@@ -1,0 +1,15 @@
+database:
+  host: localhost
+  port: 3306
+  user: root
+  password: ""
+  database: financial_reports
+
+paths:
+  pdf_dir: "pdf提取测试集"
+  output_dir: "test_ex_db_result"
+  log_dir: "test_ex_db_result"
+
+settings:
+  unit_conversion: true
+  duplicate_mode: "REPLACE"

@@ -1,0 +1,100 @@
+{
+  "fixtures": [
+    {
+      "filename": "600080_20240427_0WKP.pdf",
+      "stock_code": "600080",
+      "report_period": "2023FY",
+      "statements": {
+        "income_sheet": {
+          "total_operating_revenue": {"expected": 56540.34, "tolerance": 0.05},
+          "net_profit": {"expected": -4289.06, "tolerance": 0.05}
+        },
+        "balance_sheet": {
+          "asset_total_assets": {"expected": 210855.11, "tolerance": 0.05},
+          "equity_total_equity": {"expected": 163842.65, "tolerance": 0.05}
+        },
+        "cash_flow_sheet": {
+          "net_cash_flow": {"expected": 18709.41, "tolerance": 0.05},
+          "operating_cf_net_amount": {"expected": 6054.84, "tolerance": 0.05}
+        },
+        "core_performance_indicators_sheet": {
+          "eps": {"expected": -0.1149, "tolerance": 0.0001},
+          "net_asset_per_share": {"expected": 4.3894, "tolerance": 0.0001}
+        }
+      }
+    },
+    {
+      "filename": "600080_20240817_5X5X.pdf",
+      "stock_code": "600080",
+      "report_period": "2024HY",
+      "statements": {
+        "income_sheet": {
+          "total_operating_revenue": {"expected": 24596.55, "tolerance": 0.05},
+          "net_profit": {"expected": 946.29, "tolerance": 0.05}
+        },
+        "balance_sheet": {
+          "asset_total_assets": {"expected": 178790.48, "tolerance": 0.05},
+          "equity_total_equity": {"expected": 149838.95, "tolerance": 0.05}
+        },
+        "cash_flow_sheet": {
+          "net_cash_flow": {"expected": -31716.65, "tolerance": 0.05},
+          "operating_cf_net_amount": {"expected": -2309.94, "tolerance": 0.05}
+        },
+        "core_performance_indicators_sheet": {
+          "eps": {"expected": 0.0261, "tolerance": 0.0001},
+          "net_asset_per_share": {"expected": 4.0142, "tolerance": 0.0001}
+        }
+      }
+    },
+    {
+      "filename": "华润三九：2023年年度报告.pdf",
+      "stock_code": "000999",
+      "report_period": "2023FY",
+      "statements": {
+        "income_sheet": {
+          "total_operating_revenue": {"expected": 2473896.33, "tolerance": 0.05},
+          "net_profit": {"expected": 317347.87, "tolerance": 0.05}
+        },
+        "balance_sheet": {
+          "asset_total_assets": {"expected": 4014845.59, "tolerance": 0.05},
+          "equity_total_equity": {"expected": 2426187.39, "tolerance": 0.05}
+        },
+        "cash_flow_sheet": {
+          "net_cash_flow": {"expected": 385367.69, "tolerance": 0.05},
+          "operating_cf_net_amount": {"expected": 419174.29, "tolerance": 0.05}
+        },
+        "core_performance_indicators_sheet": {
+          "eps": {"expected": 2.9, "tolerance": 0.0001},
+          "net_asset_per_share": {"expected": 19.1939, "tolerance": 0.0001}
+        }
+      }
+    },
+    {
+      "filename": "华润三九：2024年一季度报告.pdf",
+      "stock_code": "000999",
+      "report_period": "2024Q1",
+      "statements": {
+        "income_sheet": {
+          "total_operating_revenue": {"expected": 729407.06, "tolerance": 0.05},
+          "net_profit": {"expected": 145316.82, "tolerance": 0.05}
+        },
+        "balance_sheet": {
+          "asset_total_assets": {"expected": 4124767.44, "tolerance": 0.05},
+          "equity_total_equity": {"expected": 2572635.53, "tolerance": 0.05}
+        },
+        "cash_flow_sheet": {
+          "net_cash_flow": {"expected": 50896.81, "tolerance": 0.05},
+          "operating_cf_net_amount": {"expected": 78657.82, "tolerance": 0.05}
+        },
+        "core_performance_indicators_sheet": {
+          "eps": {"expected": 1.39, "tolerance": 0.0001},
+          "net_asset_per_share": {"expected": 20.5888, "tolerance": 0.0001}
+        }
+      }
+    }
+  ],
+  "failure_assertions": {
+    "blocked_dirty_value": "0.01",
+    "require_no_errors_log": true
+  }
+}
