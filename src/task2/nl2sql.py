@@ -215,18 +215,21 @@ def build_sql_plan(
     loaded_config = load_task2_config(config) if isinstance(config, str) else config
     resolver_module = importlib.import_module("src.task2.resolver")
     clarification_module = importlib.import_module("src.task2.clarification")
+    intent_judge_module = importlib.import_module("src.task2.intent_judge")
     resolve_question_context = getattr(resolver_module, "resolve_question_context")
-    clarify_if_needed = getattr(clarification_module, "clarify_if_needed")
+    precheck_required_fields = getattr(clarification_module, "precheck_required_fields")
+    finalize_clarification = getattr(clarification_module, "finalize_clarification")
+    run_intent_judge = getattr(intent_judge_module, "run_intent_judge")
 
     resolved_context = resolve_question_context(
         question, loaded_config, previous_context
     )
-    clarification = clarify_if_needed(resolved_context)
-    if bool(clarification.get("needs_clarification")):
+    precheck = precheck_required_fields(resolved_context)
+    if bool(precheck.get("needs_clarification")):
         return {
             "intent": str(resolved_context.get("intent") or "single_value"),
             "needs_clarification": True,
-            "clarification_question": clarification.get("question"),
+            "clarification_question": precheck.get("question"),
             "sql": None,
             "table_name": resolved_context.get("table_name"),
             "metric_name": resolved_context.get("metric_name"),
@@ -234,13 +237,43 @@ def build_sql_plan(
             "chart_recommendation": "none",
             "analysis_focus": [],
             "planner_source": "clarification",
-            "resolved_context": resolved_context,
+            "resolved_context": precheck.get("final_context") or resolved_context,
         }
 
-    heuristic_plan = _heuristic_plan(resolved_context, loaded_config)
+    judge_result = run_intent_judge(
+        question,
+        resolved_context,
+        loaded_config,
+        use_llm=use_llm,
+    )
+    clarification = finalize_clarification(resolved_context, judge_result)
+    final_context = dict(clarification.get("final_context") or resolved_context)
+    if bool(clarification.get("needs_clarification")):
+        planner_source = (
+            "judge"
+            if str(judge_result.get("status") or "") == "clarify"
+            and str(judge_result.get("source") or "") == "judge"
+            else "clarification"
+        )
+        return {
+            "intent": str(final_context.get("intent") or "single_value"),
+            "needs_clarification": True,
+            "clarification_question": clarification.get("question"),
+            "sql": None,
+            "table_name": final_context.get("table_name"),
+            "metric_name": final_context.get("metric_name"),
+            "metric_column": final_context.get("metric_column"),
+            "chart_recommendation": "none",
+            "analysis_focus": [],
+            "planner_source": planner_source,
+            "resolved_context": final_context,
+        }
+
+    heuristic_plan = _heuristic_plan(final_context, loaded_config)
     if use_llm:
-        llm_plan = _llm_plan(question, resolved_context, loaded_config)
+        llm_plan = _llm_plan(question, final_context, loaded_config)
         if llm_plan is not None and not bool(llm_plan.get("needs_clarification")):
             heuristic_plan.update(llm_plan)
-    heuristic_plan["resolved_context"] = resolved_context
+    heuristic_plan["resolved_context"] = final_context
+    heuristic_plan["judge_result"] = judge_result
     return heuristic_plan

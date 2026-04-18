@@ -28,7 +28,12 @@ task2:
   max_rows: 50
   default_recent_years: 4
   max_turns: 10
+  max_clarification_turns: 3
   enable_charts: true
+  judge_enabled: true
+  judge_confidence_threshold: 0.8
+  judge_timeout_seconds: 30
+  judge_max_retries: 0
   sample_input_path: ""
   chart_font_candidates:
     - "Noto Sans CJK JP"

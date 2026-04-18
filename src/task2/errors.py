@@ -55,6 +55,15 @@ class ModelResponseError(Task2Error):
         super().__init__("model_response_error", message, recovery_hint)
 
 
+class IntentJudgeError(Task2Error):
+    def __init__(
+        self,
+        message: str,
+        recovery_hint: str = "系统已回退到规则澄清，请补充更明确的问题表述。",
+    ) -> None:
+        super().__init__("intent_judge_error", message, recovery_hint)
+
+
 class SQLGuardrailError(Task2Error):
     def __init__(
         self,

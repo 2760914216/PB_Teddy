@@ -37,7 +37,12 @@ class Task2RuntimeConfig:
     max_rows: int = 50
     default_recent_years: int = 4
     max_turns: int = 10
+    max_clarification_turns: int = 3
     enable_charts: bool = True
+    judge_enabled: bool = True
+    judge_confidence_threshold: float = 0.8
+    judge_timeout_seconds: int = 30
+    judge_max_retries: int = 0
     sample_input_path: str = ""
     chart_font_candidates: tuple[str, ...] = (
         "Noto Sans CJK JP",
@@ -194,7 +199,32 @@ def load_task2_config(config_path: str = "config.yaml") -> Task2Config:
             2, _coerce_int(task2_raw.get("default_recent_years"), default=4)
         ),
         max_turns=max(1, _coerce_int(task2_raw.get("max_turns"), default=10)),
+        max_clarification_turns=max(
+            1, _coerce_int(task2_raw.get("max_clarification_turns"), default=3)
+        ),
         enable_charts=_coerce_bool(task2_raw.get("enable_charts"), default=True),
+        judge_enabled=_coerce_bool(task2_raw.get("judge_enabled"), default=True),
+        judge_confidence_threshold=max(
+            0.0,
+            min(
+                1.0,
+                _coerce_float(task2_raw.get("judge_confidence_threshold"), default=0.8),
+            ),
+        ),
+        judge_timeout_seconds=max(
+            1,
+            _coerce_int(
+                task2_raw.get("judge_timeout_seconds", ollama.timeout_seconds),
+                default=ollama.timeout_seconds,
+            ),
+        ),
+        judge_max_retries=max(
+            0,
+            _coerce_int(
+                task2_raw.get("judge_max_retries", ollama.max_retries),
+                default=ollama.max_retries,
+            ),
+        ),
         sample_input_path=_coerce_str(task2_raw.get("sample_input_path"), default=""),
         chart_font_candidates=font_candidates
         or Task2RuntimeConfig.chart_font_candidates,
